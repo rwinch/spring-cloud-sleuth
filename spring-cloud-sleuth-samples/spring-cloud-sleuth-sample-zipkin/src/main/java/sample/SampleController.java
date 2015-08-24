@@ -19,9 +19,6 @@ package sample;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerInitializedEvent;
 import org.springframework.cloud.sleuth.Span;
@@ -33,6 +30,9 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Spencer Gibb
@@ -121,6 +121,7 @@ ApplicationListener<EmbeddedServletContainerInitializedEvent> {
 				+ "/call", String.class);
 		return "start/" + s;
 	}
+
 
 	@Override
 	public void onApplicationEvent(EmbeddedServletContainerInitializedEvent event) {

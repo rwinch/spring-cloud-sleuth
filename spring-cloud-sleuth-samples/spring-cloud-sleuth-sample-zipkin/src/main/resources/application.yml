@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: testSleuthZipkin
+security:
+  user:
+    password: password
+  sessions: if-required
 
 logging:
   pattern:

@@ -1,0 +1,32 @@
+Demos how Spring Session Id can be added as an Annotation.
+This means you can trace an entire user's session.
+
+= Prerequisites
+
+* Run OpenZipkin
+* Run Redis on localhost and default port
+
+= Trying the Sample
+
+* Authenticate the user
+
++
+
+[source,bash]
+----
+$ curl -v -u user:password http://localhost:3380/authenticate 2>&1 | grep x-auth-token
+< x-auth-token: <some-id>
+----
+
+* Make Requests with the User making sure to replace `<some-id>` with the id from the output above
+
++
+
+[source,bash]
+----
+$ curl -H "x-auth-token: <some-id>"  http://localhost:3380/
+----
+
+= TBD
+
+* Hash the session id when adding as a span (ensure it is secured)
